@@ -18,7 +18,8 @@ class WebScraper {
 
 	async run() {
 		await this.initialise();
-		await this.scrape();
+        await this.scrape();
+        console.log('All resolved')
 	}
 }
 

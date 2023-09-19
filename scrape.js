@@ -3,7 +3,7 @@ async function scrapeFunction() {
 		await new Promise((resolve, reject) => {
 			setTimeout(() => resolve(), 2000);
 		});
-		console.log('resolved');
+		console.log('scrape resolved');
 	} catch (err) {
 		console.log(`Error: ${err}`);
 	}

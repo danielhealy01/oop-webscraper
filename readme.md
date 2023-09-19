@@ -8,4 +8,6 @@ Another webscraper, but this time the code is styled in an OOP focused design.
 * Be closer to clean code best practices
 
 
-  
+### Thoughts
+* Using commonjs this time for modules. As specified within package.json. Need to be cautious, as I belive ESmodules with import export are backwards compatible, but commonjs isn't.
+
