@@ -1,28 +1,19 @@
 // const puppeteer = require('puppeteer');
 // const fs = require('fs');
-
+const scrapeFunction = require('./scrape');
+const initialiseFunction = require('./initialise')
 class WebScraper {
 	constructor() {
 		this.url = '';
 		this.outputFile = '';
 	}
 
-	async initialise() {
-		await new Promise((resolve, reject) => {
-			setTimeout(() => resolve(), 2000);
-		});
-		console.log('resolved');
+	initialise() {
+        return initialiseFunction()
 	}
 
-	async scrape() {
-		try {
-			await new Promise((resolve, reject) => {
-				setTimeout(() => resolve(), 2000);
-			});
-			console.log('resolved');
-		} catch (err) {
-			console.log(`Error: ${err}`);
-		}
+	scrape() {
+		return scrapeFunction();
 	}
 
 	async run() {
@@ -31,7 +22,6 @@ class WebScraper {
 	}
 }
 
-module.exports = { WebScraper };
+module.exports = WebScraper;
 
-// TDD
-// Commander.js with argv
+
