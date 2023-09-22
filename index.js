@@ -3,7 +3,7 @@ const fs = require('fs')
 const WebScraper = require('./webScraper')
 
 
-const scraper = new WebScraper('a', 'b')
+const scraper = new WebScraper('https://www.bbc.co.uk', './output.json');
 
 scraper.run()
 

@@ -1,28 +1,33 @@
 // const puppeteer = require('puppeteer');
 // const fs = require('fs');
 const scrapeFunction = require('./scrape');
-const initialiseFunction = require('./initialise')
+const initialiseFunction = require('./initialise');
+const saveData = require('./saveData')
 class WebScraper {
-	constructor() {
-		this.url = '';
-		this.outputFile = '';
+	constructor(url, outputFile) {
+		this.url = url;
+		this.outputFile = outputFile;
 	}
 
 	initialise() {
-        return initialiseFunction()
+		return initialiseFunction();
 	}
 
-	scrape() {
-		return scrapeFunction();
-	}
+    async scrape() {
+        const scrapedData = await scrapeFunction(this.url, this.outputFile);
+		return scrapedData
+    }
+
+    async saveOutput(scrapedData) {
+        await saveData(scrapedData);
+    }
 
 	async run() {
 		await this.initialise();
-        await this.scrape();
-        console.log('All resolved')
+        const scrapedData = await this.scrape();
+        await this.saveOutput(scrapedData)
+		console.log('All resolved');
 	}
 }
 
 module.exports = WebScraper;
-
-

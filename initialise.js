@@ -6,7 +6,6 @@ async function initialiseFunction() {
         // stops warning of deprecated headless mode
     );
     this.page = await this.browser.newPage();
-    await this.browser.close();
     console.log('initialise resolved')
     // closed just to stop hanging.
 }
